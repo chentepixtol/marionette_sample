@@ -6,8 +6,8 @@ require.config( {
   }
 } );
 
-require([ "jquery", "underscore", "backbone", "marionette", "app", "modules/main/module"], 
-  function ( $, _, Backbone, Marionette, App, MainModule) {
+require([ "jquery", "underscore", "backbone", "marionette", "vendor/twig", "app", "modules/main/module"], 
+  function ( $, _, Backbone, Marionette, Twig, App, MainModule) {
     $( function () {
       console.log("load scripts");
       App.start();

@@ -1,15 +1,15 @@
-define(["marionette", "vendor/twig"], function(Marionette, twig){
+define(["marionette"], function(Marionette){
 
   var app = new Marionette.Application();
 
   app.addInitializer(function(options){
 
-    console.log(twig);
-
     Marionette.TemplateCache.get = function(templateId){
-      return twig({
-        data: $(templateId).text()
-      });
+      return function(data){
+        return twig({
+          data: $(templateId).text()
+        }).render(data);
+      };
     };
     
     app.addRegions({
