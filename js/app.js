@@ -4,12 +4,20 @@ define(["marionette"], function(Marionette){
 
   app.addInitializer(function(options){
 
-    Marionette.TemplateCache.get = function(templateId){
-      return function(data){
-        return twig({
-          data: $(templateId).text()
-        }).render(data);
-      };
+    var templates = {};
+    Marionette.TemplateCache.get = function(templateElem){
+
+      var templateId = templateElem.selector;
+      if( !_.has(templates, templateId) ){
+        var template = function(data){
+          return twig({
+            data: templateElem.html()
+          }).render(data);
+        };
+        templates[templateId] = template;
+      }
+
+      return templates[templateId];
     };
     
     app.addRegions({
