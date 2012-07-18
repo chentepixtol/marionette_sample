@@ -6,10 +6,10 @@ define(["marionette",
 
   var Module = {
     loaded: false,
-    load: function(){
+    init: function(){
       if( this.loaded ) return;
-      Collections.load();
-      Models.load();
+      Collections.init();
+      Models.init();
 
       
       var templates = $(text);

@@ -2,12 +2,12 @@ define(["main/views", "main/models", "main/collections"], function(Views, Models
  
   var Module = {
     loaded: false,
-    load: function(){
+    init: function(){
 
       if( this.loaded ) return;
-      Views.load();
-      Models.load();
-      Collections.load();
+      Views.init();
+      Models.init();
+      Collections.init();
       
       Module.Views = Views;	
       Module.Models = Models;	

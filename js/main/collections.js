@@ -2,9 +2,9 @@ define(["backbone", "main/models"], function(Backbone, Models){
 
   var Module = {
     loaded: false,
-    load: function(){
+    init: function(){
       if( this.loaded ) return;
-      Models.load();
+      Models.init();
       
       var Items = new Backbone.Collection.extend({
         model: Models.Item

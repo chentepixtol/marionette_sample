@@ -2,7 +2,7 @@ define(["backbone"], function(Backbone){
 
   var Module = {
     loaded: false,
-    load: function(){
+    init: function(){
       if( this.loaded ) return;
       
       var Item = new Backbone.Model.extend({
